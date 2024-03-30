@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pathology Classification in Phonocardiograms Using ML</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FCEADE;
+        }
+
+        img {
+            width: 50%;
+            height: auto;
+            
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .custom-button {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            margin-top: 1rem;
+        }
+
+        .custom-button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .custom-button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        /* Hide the default file input */
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="static\display_1.jpg" alt="Image Description">
+    <h1>Pathology Classification in Phonocardiograms Using ML</h1>
+
+    <form action="/process_form" method="post" enctype="multipart/form-data">
+        <!-- Custom button to trigger file input -->
+        <label for="audio" class="custom-button">Select Audio File</label>
+        <input type="file" id="audio" name="audio" accept="audio/*"><br><br>
+
+        <!-- Use the custom button for Submit -->
+        <button type="submit" class="custom-button">Submit</button>
+    </form>
+</body>
+</html>

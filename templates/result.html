@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phonocardiograms Classification Result</title>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FCEADE;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .image-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        .normal, .abnormal {
+            flex: 1;
+            text-align: center;
+        }
+
+        .back-button {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            margin-top: 1rem;
+        }
+
+        .back-button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .back-button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+    </style>
+
+    <script>
+        // JavaScript to change image opacity based on prediction
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const prediction = '{{ prediction }}'; // Replace with actual value
+
+            const normalImage = document.querySelector('.normal img');
+            const abnormalImage = document.querySelector('.abnormal img');
+
+            if (prediction === 'Normal') {
+                abnormalImage.style.opacity = '0.1';
+            } else {
+                normalImage.style.opacity = '0.1';
+            }
+        });
+    </script>
+
+    <!-- Link to Open Sans font from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+</head>
+<body>
+    <h1>Phonocardiograms Classification Result</h1>
+    <p>
+        {% if prediction == 'Normal' %}
+            <strong>Result:</strong> Normal Heartbeat
+        {% else %}
+            <strong>Result:</strong> Abnormal Heartbeat
+        {% endif %}
+    </p>
+
+    <div class="image-container">
+        <div class="normal">
+            <img src="static\normal.JPG" alt="Normal Phonocardiogram">
+        </div>
+        <div class="abnormal">
+            <img src="static\abnormal.JPG" alt="Abnormal Phonocardiogram">
+        </div>
+    </div>
+
+    <!-- Back button to go to the upload page -->
+    <a href="/" class="back-button">Back to Upload</a>
+</body>
+</html>
